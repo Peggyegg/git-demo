@@ -1,18 +1,42 @@
-hello world!hello git! 2222
-hello world!hello git! 3333
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git!
-hello world!hello git! master test
-hello world!hello git! hot-fix test
-1234567890
-1111111777777777111
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int arr[n][m]={0};
+    int top=0,bottom=n-1,left=0,right=m-1;
+    int t,b,l,r;
+    int k=1;
+    l=left;
+    while(k<=n*m)
+    {
+        while(l<=right)
+            arr[top][l++]=k++;
+        top++;
+        t=top;
+        while(t<=bottom)
+            arr[t++][right]=k++;
+        right--;
+        r=right;
+        while(r>=left)
+            arr[bottom][r--]=k++;
+        bottom--;
+        b=bottom;
+        while(b>=top)
+            arr[b--][left]=k++;
+        left++;
+        l=left;
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cout<<setw(3)<<arr[i][j];
+        }
+        cout<<endl;
+    }
+    return 0;
+}
